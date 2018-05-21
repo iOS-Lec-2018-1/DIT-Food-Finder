@@ -56,6 +56,26 @@ class FoodStoreTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let optionMenu = UIAlertController(title: nil, message: "뭘 원하십니까?", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default , handler: {
+            (action: UIAlertAction) -> Void in
+            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call service is not available yet", preferredStyle: .alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertMessage, animated: true, completion: nil)
+            
+        })
+        
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(callAction)
+        
+        present(optionMenu, animated: true, completion: nil)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
