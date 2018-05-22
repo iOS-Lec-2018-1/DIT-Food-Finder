@@ -25,7 +25,7 @@ class FoodStoreTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.title = " DIT 철가방"
+        self.title = " DIT 배달통"
     }
 
 
@@ -62,18 +62,36 @@ class FoodStoreTableViewController: UITableViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default , handler: {
+//        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default , handler: {
+//            (action: UIAlertAction) -> Void in
+//            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call service is not available yet", preferredStyle: .alert)
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alertMessage, animated: true, completion: nil)
+//
+//        })
+        
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default) {
             (action: UIAlertAction) -> Void in
             let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call service is not available yet", preferredStyle: .alert)
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alertMessage, animated: true, completion: nil)
             
-        })
+        }
+        
+        // check-in action
+        let checkinAction = UIAlertAction(title: "Check in", style: .default) {
+            (action: UIAlertAction) -> Void in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        }
         
         optionMenu.addAction(cancelAction)
         optionMenu.addAction(callAction)
+        optionMenu.addAction(checkinAction)
         
         present(optionMenu, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: false)
         
     }
 
@@ -85,17 +103,22 @@ class FoodStoreTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            foodStoreNames.remove(at: indexPath.row)
+            foodStoreImages.remove(at: indexPath.row)
+            foodStoreType.remove(at: indexPath.row)
+            foodStoreLocation.remove(at: indexPath.row)
+        } //else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+        tableView.reloadData()
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
