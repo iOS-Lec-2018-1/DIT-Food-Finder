@@ -81,12 +81,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Dcs-q0-Hyr">
-                        <barButtonItem key="leftBarButtonItem" title="EDIT" id="qUt-ab-8f6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="qUt-ab-8f6">
                             <connections>
                                 <action selector="editItem:" destination="4v7-NM-hQw" id="M7t-8M-2MN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="DONE" id="2jN-qJ-yxw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2jN-qJ-yxw">
                             <connections>
                                 <action selector="NonEditItem:" destination="4v7-NM-hQw" id="Zzy-9u-SvF"/>
                             </connections>
