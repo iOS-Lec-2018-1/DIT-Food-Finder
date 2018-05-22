@@ -28,7 +28,14 @@ class FoodStoreTableViewController: UITableViewController {
         self.title = " DIT 배달통"
     }
 
-
+    @IBAction func editItem(_ sender: Any) {
+        tableView.isEditing = true
+    }
+    
+    @IBAction func NonEditItem(_ sender: Any) {
+        tableView.isEditing = false
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,13 +102,11 @@ class FoodStoreTableViewController: UITableViewController {
         
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
     
     // Override to support editing the table view.
@@ -119,13 +124,14 @@ class FoodStoreTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let tmp1 = foodStoreNames[to.row]
+        foodStoreNames[to.row] = foodStoreNames[fromIndexPath.row]
+        foodStoreNames[fromIndexPath.row] = tmp1
+        
+        tableView.reloadData()
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
