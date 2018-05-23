@@ -82,24 +82,30 @@ class FoodStoreTableViewController: UITableViewController {
             let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call service is not available yet", preferredStyle: .alert)
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alertMessage, animated: true, completion: nil)
-            
         }
         
         // check-in action
-        let checkinAction = UIAlertAction(title: "Check in", style: .default) {
+        let checkinAction = UIAlertAction(title: "Check-in", style: .default) {
             (action: UIAlertAction) -> Void in
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
         }
         
+        //undo-check-in
+        let undoCheckinAction = UIAlertAction(title: "Un-Checkin", style: .default) {
+            (action: UIAlertAction) -> Void in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .none
+        }
+        
         optionMenu.addAction(cancelAction)
         optionMenu.addAction(callAction)
         optionMenu.addAction(checkinAction)
+        optionMenu.addAction(undoCheckinAction)
         
         present(optionMenu, animated: true, completion: nil)
         
         tableView.deselectRow(at: indexPath, animated: false)
-        
     }
 
     // Override to support conditional editing of the table view.
@@ -115,9 +121,9 @@ class FoodStoreTableViewController: UITableViewController {
             // Delete the row from the data source
             //tableView.deleteRows(at: [indexPath], with: .fade)
             foodStoreNames.remove(at: indexPath.row)
-            foodStoreImages.remove(at: indexPath.row)
-            foodStoreType.remove(at: indexPath.row)
-            foodStoreLocation.remove(at: indexPath.row)
+//            foodStoreImages.remove(at: indexPath.row)
+//            foodStoreType.remove(at: indexPath.row)
+//            foodStoreLocation.remove(at: indexPath.row)
         } //else if editingStyle == .insert {
 //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 //        }
@@ -133,13 +139,11 @@ class FoodStoreTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
 
     /*
     // MARK: - Navigation
