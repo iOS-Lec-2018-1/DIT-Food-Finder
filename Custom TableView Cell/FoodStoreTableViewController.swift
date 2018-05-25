@@ -22,7 +22,16 @@ class FoodStoreTableViewController: UITableViewController {
                                   FoodStore(name: "왕짜장", type: "중국식당", location: "부산광역시 부산진구 양정1동 356-22", image: "03", tel: "051-860-1234"),
                                   FoodStore(name: "토마토도시락 동의과학대점", type: "도시락", location: "부산광역시 부산진구 양정동", image: "04", tel: "051-860-1234"),
                                   FoodStore(name: "늘해랑", type: "돼지국밥집", location: "부산광역시 부산진구 양정1동 350-1", image: "05", tel: "051-860-1234"),
-                                  FoodStore(name: "홍콩반점0410 양정점", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "06", tel: "051-860-1234")
+                                  FoodStore(name: "홍콩반점0410 양정점", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "06", tel: "051-860-1234"),
+                                  FoodStore(name: "누가네", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "07", tel: "051-860-1234"),
+                                  FoodStore(name: "피자에땅", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "08", tel: "051-860-1234"),
+                                  FoodStore(name: "도미노 피자", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "09", tel: "051-860-1234"),
+                                  FoodStore(name: "맘스터치", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "10", tel: "051-860-1234"),
+                                  FoodStore(name: "버거스", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "11", tel: "051-860-1234"),
+                                  FoodStore(name: "사계탕", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "12", tel: "051-860-1234"),
+                                  FoodStore(name: "오꾸닭", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "13", tel: "051-860-1234"),
+                                  FoodStore(name: "집밥", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "14", tel: "051-860-1234"),
+                                  FoodStore(name: "비맛하우스", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "15", tel: "051-860-1234")
                                   ]
     
 
