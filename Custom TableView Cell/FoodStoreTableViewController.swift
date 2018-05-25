@@ -74,6 +74,7 @@ class FoodStoreTableViewController: UITableViewController {
         return cell
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let optionMenu = UIAlertController(title: nil, message: "뭘 원하십니까?", preferredStyle: .actionSheet)
         
@@ -117,6 +118,7 @@ class FoodStoreTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: false)
     }
+ */
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -156,14 +158,20 @@ class FoodStoreTableViewController: UITableViewController {
         return true
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showFoodStoreDetail" {
+            if let myIndexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! FoodStoreDetailViewController
+                destinationController.foodStoreImageName = FoodStores[myIndexPath.row].image
+                destinationController.foodStoreName = FoodStores[myIndexPath.row].name
+            }
+        }
     }
-    */
 
 }

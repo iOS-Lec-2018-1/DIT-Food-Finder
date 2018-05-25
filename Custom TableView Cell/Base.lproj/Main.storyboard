@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,6 +73,7 @@
                                     <outlet property="nameLabel" destination="KxV-Jv-1wB" id="g91-Eg-M1f"/>
                                     <outlet property="thumbnailImageView" destination="bLb-Da-yXx" id="9FB-P1-GTg"/>
                                     <outlet property="typeLabel" destination="WwD-Dg-9gC" id="6ku-cT-dur"/>
+                                    <segue destination="9EH-pT-2EA" kind="show" identifier="showFoodStoreDetail" id="trP-xb-Px0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,6 +87,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-Cp-xvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455.19999999999999" y="77.811094452773617"/>
+        </scene>
+        <!--Food Store Detail View Controller-->
+        <scene sceneID="bMd-JK-B82">
+            <objects>
+                <viewController id="9EH-pT-2EA" customClass="FoodStoreDetailViewController" customModule="Custom_TableView_Cell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="soB-iR-ZAN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-YZ-LS1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yo1-YZ-LS1" firstAttribute="bottom" secondItem="uoJ-Xy-2CA" secondAttribute="bottom" id="Dhz-Ea-mKd"/>
+                            <constraint firstItem="Yo1-YZ-LS1" firstAttribute="leading" secondItem="uoJ-Xy-2CA" secondAttribute="leading" id="ejr-ci-77O"/>
+                            <constraint firstItem="Yo1-YZ-LS1" firstAttribute="trailing" secondItem="uoJ-Xy-2CA" secondAttribute="trailing" id="rB3-ib-MTg"/>
+                            <constraint firstItem="Yo1-YZ-LS1" firstAttribute="top" secondItem="soB-iR-ZAN" secondAttribute="top" constant="64" id="zsr-os-kAZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uoJ-Xy-2CA"/>
+                    </view>
+                    <connections>
+                        <outlet property="foodStoreImageView" destination="Yo1-YZ-LS1" id="d6L-3Y-iyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51W-kL-w4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255.2" y="96.7016491754123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qIc-Ez-8m8">
