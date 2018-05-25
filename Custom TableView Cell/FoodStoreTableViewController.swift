@@ -9,12 +9,21 @@
 import UIKit
 
 class FoodStoreTableViewController: UITableViewController {
-    var foodStoreNames = ["번개반점", "아딸", "왕짜장", "토마토도시락 동의과학대점", "늘해랑",  "홍콩반점0410 양정점"]
-    var foodStoreImages = ["01", "02", "03", "04", "05",  "06"]
-    var foodStoreLocation = ["부산광역시 부산진구 양정동 418-282","부산광역시 부산진구 양정동 393-18",
-                             "부산광역시 부산진구 양정1동 356-22", "부산광역시 부산진구 양정동",
-                            "부산광역시 부산진구 양정1동 350-1", "부산광역시 부산진구 양정1동 중앙대로 902"]
-    var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
+//    var foodStoreNames = ["번개반점", "아딸", "왕짜장", "토마토도시락 동의과학대점", "늘해랑",  "홍콩반점0410 양정점"]
+//    var foodStoreImages = ["01", "02", "03", "04", "05",  "06"]
+//    var foodStoreLocation = ["부산광역시 부산진구 양정동 418-282","부산광역시 부산진구 양정동 393-18",
+//                             "부산광역시 부산진구 양정1동 356-22", "부산광역시 부산진구 양정동",
+//                            "부산광역시 부산진구 양정1동 350-1", "부산광역시 부산진구 양정1동 중앙대로 902"]
+//    var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
+    
+    // FoodStore 객체 생성
+    var FoodStores:[FoodStore] = [FoodStore(name: "번개반점", type: "중국식당", location: "부산광역시 부산진구 양정동 418-282", image: "01", tel: "051-860-1234"),
+                                  FoodStore(name: "아딸", type: "분식점", location: "부산광역시 부산진구 양정동 393-18", image: "02", tel: "051-860-1234"),
+                                  FoodStore(name: "왕짜장", type: "중국식당", location: "부산광역시 부산진구 양정1동 356-22", image: "03", tel: "051-860-1234"),
+                                  FoodStore(name: "토마토도시락 동의과학대점", type: "도시락", location: "부산광역시 부산진구 양정동", image: "04", tel: "051-860-1234"),
+                                  FoodStore(name: "늘해랑", type: "돼지국밥집", location: "부산광역시 부산진구 양정1동 350-1", image: "05", tel: "051-860-1234"),
+                                  FoodStore(name: "홍콩반점0410 양정점", type: "중국식당", location: "부산광역시 부산진구 양정1동 중앙대로 902", image: "06", tel: "051-860-1234")
+                                  ]
     
 
     override func viewDidLoad() {
@@ -25,17 +34,17 @@ class FoodStoreTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
         self.title = " DIT 배달통"
     }
 
-    @IBAction func editItem(_ sender: Any) {
-        tableView.isEditing = true
-    }
-    
-    @IBAction func NonEditItem(_ sender: Any) {
-        tableView.isEditing = false
-    }
+//    @IBAction func editItem(_ sender: Any) {
+//        tableView.isEditing = true
+//    }
+//
+//    @IBAction func NonEditItem(_ sender: Any) {
+//        tableView.isEditing = false
+//    }
     
     // MARK: - Table view data source
 
@@ -46,7 +55,7 @@ class FoodStoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return foodStoreNames.count
+        return FoodStores.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,10 +66,10 @@ class FoodStoreTableViewController: UITableViewController {
 //        cell.imageView?.image = UIImage(named: foodStoreImages[indexPath.row])
 //        cell.imageView?.image = UIImage(named:"02")
         
-        cell.nameLabel.text = foodStoreNames[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: foodStoreImages[indexPath.row])
-        cell.locationLabel.text = foodStoreLocation[indexPath.row]
-        cell.typeLabel.text = foodStoreType[indexPath.row]
+        cell.nameLabel.text = FoodStores[indexPath.row].name
+        cell.thumbnailImageView.image = UIImage(named: FoodStores[indexPath.row].image)
+        cell.locationLabel.text = FoodStores[indexPath.row].location
+        cell.typeLabel.text = FoodStores[indexPath.row].type
 
         return cell
     }
@@ -120,7 +129,7 @@ class FoodStoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            foodStoreNames.remove(at: indexPath.row)
+            FoodStores.remove(at: indexPath.row)
 //            foodStoreImages.remove(at: indexPath.row)
 //            foodStoreType.remove(at: indexPath.row)
 //            foodStoreLocation.remove(at: indexPath.row)
@@ -133,13 +142,13 @@ class FoodStoreTableViewController: UITableViewController {
     }
     
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let tmp1 = foodStoreNames[to.row]
-        foodStoreNames[to.row] = foodStoreNames[fromIndexPath.row]
-        foodStoreNames[fromIndexPath.row] = tmp1
-        
-        tableView.reloadData()
-    }
+//    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//        let tmp1 = FoodStores[to.row]
+//        FoodStores[to.row] = FoodStores[fromIndexPath.row]
+//        FoodStores[fromIndexPath.row] = tmp1
+//
+//        tableView.reloadData()
+//    }
 
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

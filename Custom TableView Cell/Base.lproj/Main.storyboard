@@ -80,18 +80,7 @@
                             <outlet property="delegate" destination="4v7-NM-hQw" id="dWW-c5-NcN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="qUt-ab-8f6">
-                            <connections>
-                                <action selector="editItem:" destination="4v7-NM-hQw" id="M7t-8M-2MN"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2jN-qJ-yxw">
-                            <connections>
-                                <action selector="NonEditItem:" destination="4v7-NM-hQw" id="Zzy-9u-SvF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-Cp-xvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
