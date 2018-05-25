@@ -120,15 +120,16 @@ class FoodStoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            //tableView.deleteRows(at: [indexPath], with: .fade)
             foodStoreNames.remove(at: indexPath.row)
 //            foodStoreImages.remove(at: indexPath.row)
 //            foodStoreType.remove(at: indexPath.row)
 //            foodStoreLocation.remove(at: indexPath.row)
+            
         } //else if editingStyle == .insert {
 //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 //        }
-        tableView.reloadData()
+//        tableView.reloadData()
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
     // Override to support rearranging the table view.
